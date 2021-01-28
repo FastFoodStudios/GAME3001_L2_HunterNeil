@@ -30,6 +30,7 @@ bool SoundManager::load(const std::string& file_name, const std::string& id, con
 	}
 	else if (type == SOUND_SFX)
 	{
+		std::cout << "sound test" << std::endl;
 		Mix_Chunk* pChunk = Mix_LoadWAV(file_name.c_str());
 		if (pChunk == nullptr)
 		{
@@ -51,6 +52,7 @@ void SoundManager::unload(const std::string& id, const SoundType type)
 	}
 	else if (type == SOUND_SFX && m_sfxs.find(id) != m_sfxs.end())
 	{
+		
 		Mix_FreeChunk(m_sfxs[id]);
 		m_sfxs.erase(id);
 	}
@@ -95,11 +97,12 @@ void SoundManager::resumeMusic() const
 
 void SoundManager::playSound(const std::string& id, const int loop/* = 0 */, const int channel/* = -1 */)
 {
+	std::cout << "play sound" << std::endl;
 	if (Mix_PlayChannel(channel, m_sfxs[id], loop) == -1)
 	{
 		std::cout << "Unable to play SFX: ERROR - " << Mix_GetError() << std::endl;
 	}
-	std::cout << "play sound" << std::endl;
+	
 }
 
 void SoundManager::setMusicVolume(const int vol) const
