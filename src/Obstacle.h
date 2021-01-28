@@ -3,6 +3,7 @@
 #define __ OBSTacle__
 #include "DisplayObject.h"
 
+
 class Obstacle final : public DisplayObject
 {
 public:
