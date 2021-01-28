@@ -30,7 +30,7 @@ bool SoundManager::load(const std::string& file_name, const std::string& id, con
 	}
 	else if (type == SOUND_SFX)
 	{
-		std::cout << "sound test" << std::endl;
+		std::cout << "sound test: " << id << std::endl;
 		Mix_Chunk* pChunk = Mix_LoadWAV(file_name.c_str());
 		if (pChunk == nullptr)
 		{
